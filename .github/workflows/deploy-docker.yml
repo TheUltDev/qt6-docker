@@ -1,0 +1,113 @@
+name: Build and Deploy Qt6 Docker Images
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      push_images:
+        description: 'Push images to Docker Hub'
+        required: true
+        default: true
+        type: boolean
+
+env:
+  DOCKER_REPO: cavitt/theultdev
+  REGISTRY: docker.io
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - 6.8-gcc-aqt
+          - 6.8-android-aqt
+          - 6.8-macos-aqt
+          - 6.8-wasm-aqt
+          - 6.8-wasm-aqt-mt
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to Docker Hub
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ secrets.DOCKER_USER_NAME }}
+        password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.DOCKER_REPO }}
+        tags: |
+          type=ref,event=branch,suffix=-${{ matrix.image }}
+          type=ref,event=pr,suffix=-${{ matrix.image }}
+          type=semver,pattern={{version}},suffix=-${{ matrix.image }}
+          type=semver,pattern={{major}}.{{minor}},suffix=-${{ matrix.image }}
+          type=raw,value=${{ matrix.image }},enable={{is_default_branch}}
+        labels: |
+          org.opencontainers.image.title=Qt6 ${{ matrix.image }}
+          org.opencontainers.image.description=Qt6 Docker container for ${{ matrix.image }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: ./${{ matrix.image }}
+        platforms: linux/amd64
+        push: ${{ github.event_name != 'pull_request' && (github.event.inputs.push_images != 'false') }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+        pull: true
+        no-cache-filters: |
+          get_qt.sh
+          get_android.sh
+          get_emsdk.sh
+          get_osxcross.sh
+          get_linuxdeploy.sh
+
+    - name: Image digest
+      if: github.event_name != 'pull_request'
+      run: |
+        echo "Image digest: ${{ steps.build.outputs.digest }}"
+
+  summary:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+    - name: Job Summary
+      run: |
+        echo "## Qt6 Docker Images Deployment Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "| Image | Status |" >> $GITHUB_STEP_SUMMARY
+        echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+        
+        images=("6.8-gcc-aqt" "6.8-android-aqt" "6.8-macos-aqt" "6.8-wasm-aqt" "6.8-wasm-aqt-mt")
+        for image in "${images[@]}"; do
+          if [[ "${{ needs.build-and-deploy.result }}" == "success" ]]; then
+            echo "| $image | ✅ Success |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "| $image | ❌ Failed |" >> $GITHUB_STEP_SUMMARY
+          fi
+        done
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        if [[ "${{ github.event_name }}" != "pull_request" ]]; then
+          echo "**Images pushed to:** https://hub.docker.com/r/${{ env.DOCKER_REPO }}/tags" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "**Note:** Images were built but not pushed (PR builds don't push to registry)" >> $GITHUB_STEP_SUMMARY
+        fi 
