@@ -25,6 +25,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 COPY get_qt.sh get_linuxdeploy.sh install_packages.sh /tmp/
 
+# Make scripts executable
+RUN chmod +x /tmp/get_qt.sh /tmp/get_linuxdeploy.sh /tmp/install_packages.sh
+
 # Get Qt binaries with aqt
 RUN /tmp/get_qt.sh
 

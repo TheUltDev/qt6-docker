@@ -36,6 +36,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 COPY get_android.sh get_qt.sh install_packages.sh /tmp/
 
+# Make scripts executable
+RUN chmod +x /tmp/get_android.sh /tmp/get_qt.sh /tmp/install_packages.sh
+
 # Get android sdk & ndk
 RUN /tmp/get_android.sh
 

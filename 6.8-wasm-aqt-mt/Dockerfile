@@ -27,6 +27,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 COPY get_emsdk.sh get_qt.sh install_packages.sh /tmp/
 
+# Make scripts executable and run them
+RUN chmod +x /tmp/get_emsdk.sh /tmp/get_qt.sh /tmp/install_packages.sh
+
 # Install emscripten
 RUN /tmp/get_emsdk.sh
 
