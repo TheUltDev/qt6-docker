@@ -13,43 +13,6 @@ Dockerhub: https://hub.docker.com/r/stateoftheartio/qt6
 * [6.8-wasm-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.8-wasm-aqt) - WebAssembly toolchain
 * [6.8-macos-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.8-macos-aqt) - MacOS X osxcross toolchain for x86_64, aarch64 (+arm64e but no Qt support)
 
-* [6.7-gcc-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.7-gcc-aqt) - Linux GCC 64
-* [6.7-android-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.7-android-aqt) - Android Clang multiarch toolkit for x86_64, x86, armv7 and arm64_v8a arch
-* [6.7-mingw-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.7-mingw-aqt) - Windows (wine) 64 MinGW toolchain
-* [6.7-macos-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.7-macos-aqt) - MacOS X osxcross toolchain for x86_64, aarch64
-
-* [6.6-gcc-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.6-gcc-aqt) - Linux GCC 64
-* [6.6-android-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.6-android-aqt) - Android Clang multiarch toolkit for x86_64, x86, armv7 and arm64_v8a arch
-* [6.6-wasm-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.6-wasm-aqt) - WebAssembly toolchain
-* [6.6-mingw-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.6-mingw-aqt) - Windows (wine) 64 MinGW toolchain
-* [6.6-macos-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.6-macos-aqt) - MacOS X osxcross toolchain for x86_64, aarch64
-
-* [6.5-gcc-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.5-gcc-aqt) - Linux GCC 64
-* [6.5-android-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.5-android-aqt) - Android Clang multiarch toolkit for x86_64, x86, armv7 and arm64_v8a arch
-* [6.5-wasm-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.5-wasm-aqt) - WebAssembly toolchain
-* [6.5-mingw-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.5-mingw-aqt) - Windows (wine) 64 MinGW toolchain
-* [6.5-macos-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.5-macos-aqt) - MacOS X osxcross toolchain for x86_64, aarch64
-
-* [6.4-gcc-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.4-gcc-aqt) - Linux GCC 64
-* [6.4-android-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.4-android-aqt) - Android Clang multiarch toolkit for x86_64, x86, armv7 and arm64_v8a arch
-* [6.4-wasm-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.4-wasm-aqt) - WebAssembly toolchain
-* [6.4-mingw-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.4-mingw-aqt) - Windows (wine) 64 MinGW toolchain
-* [6.4-macos-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.4-macos-aqt) - MacOS X osxcross toolchain for x86_64, aarch64
-
-* [6.3-gcc-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.3-gcc-aqt) - Linux GCC 64
-* [6.3-android-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.3-android-aqt) - Android Clang multiarch toolkit for x86_64, x86, armv7 and arm64_v8a arch
-* [6.3-wasm-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.3-wasm-aqt) - WebAssembly toolchain
-* [6.3-mingw-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.3-mingw-aqt) - Windows (wine) 64 MinGW toolchain
-* [6.3-macos-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.3-macos-aqt) - MacOS X osxcross toolchain for x86_64, aarch64
-
-* [6.2-gcc-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.2-gcc-aqt) - Linux GCC 64
-* [6.2-android-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.2-android-aqt) - Android Clang toolkit for x86_64, x86, armv7 and arm64_v8a arch
-* [6.2-wasm-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.2-wasm-aqt) - WebAssembly toolchain
-* [6.2-mingw-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.2-mingw-aqt) - Windows (wine) 64 MinGW toolchain
-* [6.2-macos-aqt](https://hub.docker.com/r/stateoftheartio/qt6/tags?page=1&name=6.2-macos-aqt) - MacOS X osxcross toolchain for x86_64, aarch64
-* 6.2-gcc-src - Linux GCC 64 built from sources (not ready)
-* 6.2-android-src - Android Clang toolkit for x86_64, x86, armv7 and arm64_v8a built from sources (not ready)
-
 ## How to build the image
 
 Just go into the required directory and run:
