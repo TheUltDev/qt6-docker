@@ -25,11 +25,12 @@ jobs:
       fail-fast: false
       matrix:
         image:
-          - 6.8-gcc-aqt
-          - 6.8-android-aqt
-          - 6.8-macos-aqt
+          # - 6.8-gcc-aqt
+          # - 6.8-android-aqt
+          # - 6.8-macos-aqt
           - 6.8-wasm-aqt
           - 6.8-wasm-aqt-mt
+          - 6.9-wasm-aqt-mt
     
     steps:
     - name: Checkout repository
@@ -96,7 +97,7 @@ jobs:
         echo "| Image | Status |" >> $GITHUB_STEP_SUMMARY
         echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
         
-        images=("6.8-gcc-aqt" "6.8-android-aqt" "6.8-macos-aqt" "6.8-wasm-aqt" "6.8-wasm-aqt-mt")
+        images=("6.8-gcc-aqt" "6.8-android-aqt" "6.8-macos-aqt" "6.8-wasm-aqt" "6.8-wasm-aqt-mt" "6.9-wasm-aqt-mt")
         for image in "${images[@]}"; do
           if [[ "${{ needs.build-and-deploy.result }}" == "success" ]]; then
             echo "| $image | ✅ Success |" >> $GITHUB_STEP_SUMMARY
