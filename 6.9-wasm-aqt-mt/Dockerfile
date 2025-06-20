@@ -23,7 +23,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     QT_WASM=${QT_PATH}/${QT_VERSION}/wasm_multithread \
     EMSDK=${SDK_PATH} \
     EMSDK_NODE=${SDK_PATH}/node/20.18.0_64bit/bin/node \
-    PATH=$PATH:${QT_PATH}/Tools/CMake/bin:${QT_PATH}/Tools/Ninja:${QT_PATH}/${QT_VERSION}/wasm_multithread/bin:${SDK_PATH}/upstream/bin:${SDK_PATH}/upstream/emscripten:${SDK_PATH}/node/20.18.0_64bit/bin:${SDK_PATH}
+    PATH=$PATH:${QT_PATH}/Tools/CMake/bin:${QT_PATH}/Tools/Ninja:${QT_PATH}/${QT_VERSION}/wasm_multithread/bin:${SDK_PATH}/upstream/bin:${SDK_PATH}/upstream/emscripten:${SDK_PATH}/node/15.14.0_64bit/bin:${SDK_PATH}
 
 COPY get_emsdk.sh get_qt.sh install_packages.sh /tmp/
 
