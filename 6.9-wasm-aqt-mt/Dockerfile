@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 MAINTAINER State Of The Art <docker@state-of-the-art.io> (@stateoftheartio)
 
 # PIP requirement like "aqtinstall==2.0.6" or url with egg file
-ARG AQT_VERSION="aqtinstall==3.3.0"
+ARG AQT_VERSION="aqtinstall==3.2.0"
 
 ARG QT_VERSION=6.9.0
 ARG QT_PATH=/opt/Qt
@@ -23,7 +23,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     QT_WASM=${QT_PATH}/${QT_VERSION}/wasm_multithread \
     EMSDK=${SDK_PATH} \
     EMSDK_NODE=${SDK_PATH}/node/20.18.0_64bit/bin/node \
-    PATH=$PATH:${QT_PATH}/Tools/CMake/bin:${QT_PATH}/Tools/Ninja:${QT_PATH}/${QT_VERSION}/wasm_multithread/bin:${SDK_PATH}/upstream/bin:${SDK_PATH}/upstream/emscripten:${SDK_PATH}/node/15.14.0_64bit/bin:${SDK_PATH}
+    PATH=$PATH:${QT_PATH}/Tools/CMake/bin:${QT_PATH}/Tools/Ninja:${QT_PATH}/${QT_VERSION}/wasm_multithread/bin:${SDK_PATH}/upstream/bin:${SDK_PATH}/upstream/emscripten:${SDK_PATH}/node/20.18.0_64bit/bin:${SDK_PATH}
 
 COPY get_emsdk.sh get_qt.sh install_packages.sh /tmp/
 
