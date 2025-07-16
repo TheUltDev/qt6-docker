@@ -3,7 +3,7 @@
 
 [ "$SDK_VERSION" ] || SDK_VERSION=3.1.70
 [ "$SDK_URL" ]    || SDK_URL="https://github.com/emscripten-core/emsdk/archive/refs/tags/$SDK_VERSION.tar.gz"
-[ "$SDK_SHA256" ] || SDK_SHA256=6df4b778f52e0e86c721cc6f97e7ad8fd6c842be2451e39f2bc528facb5d4cde
+[ "$SDK_SHA256" ] || SDK_SHA256=5aa3fcdfbc3812419e9c73a5147ca9f9fdda897e05f24161813df14b35fcd7a5
 
 [ "$SDK_PATH" ] || SDK_PATH=/opt/emsdk
 
@@ -29,14 +29,8 @@ echo "$SDK_SHA256 -" > sum.txt && curl -fLs "$SDK_URL" | tee /tmp/emsdk.tar.gz |
 mkdir -p "$SDK_PATH"
 tar --strip-components 1 -C "$SDK_PATH" -xf /tmp/emsdk.tar.gz
 rm -f /tmp/emsdk.tar.gz
-
-# Change to SDK directory and use full path
-cd "$SDK_PATH"
-./emsdk install "$SDK_VERSION"
-./emsdk activate "$SDK_VERSION"
-
-# Source the environment
-. ./emsdk_env.sh
+emsdk install "$SDK_VERSION"
+emsdk activate "$SDK_VERSION"
 
 # Make sure node tool exist
 ls "$EMSDK_NODE"
