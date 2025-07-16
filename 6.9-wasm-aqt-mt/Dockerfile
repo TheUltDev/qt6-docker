@@ -11,7 +11,7 @@ ARG QT_PATH=/opt/Qt
 
 ARG SDK_PATH=/opt/emsdk
 ARG SDK_VERSION=3.1.70
-ARG SDK_SHA256=6df4b778f52e0e86c721cc6f97e7ad8fd6c842be2451e39f2bc528facb5d4cde
+ARG SDK_SHA256=5aa3fcdfbc3812419e9c73a5147ca9f9fdda897e05f24161813df14b35fcd7a5
 
 ARG ADDITIONAL_PACKAGES="sudo git openssh-client ca-certificates curl python3 locales"
 
